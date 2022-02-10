@@ -1,0 +1,32 @@
+{
+  "name": "cefcom-node-angular",
+  "version": "1.0.0",
+  "description": "A simple e-commerce website for the time being, in the future it will be expanded.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeebon/cefcom-node-angular.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeebon/cefcom-node-angular/issues"
+  },
+  "homepage": "https://github.com/jeebon/cefcom-node-angular#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongodb-memory-server": "^8.3.0",
+    "mongoose": "^6.2.1",
+    "node-mocks-http": "^1.11.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  }
+}
