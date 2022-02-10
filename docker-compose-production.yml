@@ -1,0 +1,29 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./server
+    restart: unless-stopped
+    env_file: ./server/config/prod.env
+    ports:
+      - "5000:5000"
+    networks:
+      - main-net
+  mongo:
+    image: mongo:4.4-bionic
+    ports:
+      - "27017:27017"
+    networks:
+      - main-net
+    volumes:
+      - mongo-data:/data/db
+networks:
+  main-net:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
+  caddy-data:
+    driver: local
+  caddy-config:
+    driver: local
