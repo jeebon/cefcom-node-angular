@@ -1,29 +1,40 @@
-version: "3"
+version: "3.9"
 services:
+  mongo_db:
+    container_name: cefcom_mongo
+    image: mongo:latest
+    restart: always
+    networks:
+      - main_net
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+
   backend:
+    container_name: cefcom_backend
     build:
       context: ./server
-    env_file: ./server/config/dev.env
+    restart: always
+    networks:
+      - main_net
+    environment:
+      PORT: 5000
+      MONGODB_SERVER: cefcom_mongo
+      MONGODB_SERVER_STATIC: localhost
+      MONGODB_URI: mongodb//mongo_db:27017
     ports:
       - "5000:5000"
-    networks:
-      - main-net
     volumes:
       - ./server/:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
-      - mongo
-  mongo:
-    image: mongo:4.4-bionic
-    ports:
-      - "27017:27017"
-    networks:
-      - main-net
-    volumes:
-      - mongo-data:/data/db
+      - mongo_db
+
 networks:
-  main-net:
+  main_net:
     driver: bridge
+
 volumes:
-  mongo-data:
-    driver: local
+  mongo-data: {}
