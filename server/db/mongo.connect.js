@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
+const config = require('config');
+const dbConfig = config.get('database');
+
 async function connect() {
-  const DB_URI = `mongodb://${process.env.MONGODB_SERVER}:27017/cefcom`;
-  console.log(DB_URI);
+  console.log("DB URI: ", dbConfig.uri);
   try {
-    const res = await mongoose.connect(DB_URI);
+    const res = await mongoose.connect(dbConfig.uri);
     console.log('Yes! db connected.');
   } catch (err) {
     console.error("Error connecting to mongodb");
