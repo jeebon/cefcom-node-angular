@@ -23,7 +23,9 @@ services:
       PORT: 5000
       MONGODB_SERVER: cefcom_mongo
       MONGODB_SERVER_STATIC: localhost
-      MONGODB_URI: mongodb//mongo_db:27017
+      MONGODB_URI: mongodb//mongo_db:27017,
+      JWT_SECRET: skfjslkjksdfjw3434j32l4
+      JWT_EXPIRES_IN: 36000
     ports:
       - "5000:5000"
     volumes:

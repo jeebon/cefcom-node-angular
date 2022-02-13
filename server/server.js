@@ -1,5 +1,10 @@
 const app = require("./app");
+//const TokenService = require('./auth/TokenService');
+const logger = require('./shared/logger');
+const mongodb = require("./db/mongo.connect");
+mongodb.connect();
 
-app.listen(5000, () => {
-  console.log("Server is now running!");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  logger.info('app is running. port: ' + PORT);
 });

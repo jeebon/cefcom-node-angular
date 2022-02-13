@@ -4,7 +4,7 @@ services:
     build:
       context: ./server
     restart: unless-stopped
-    env_file: ./server/config/prod.env
+    env_file: ./server/.env
     ports:
       - "5000:5000"
     networks:
