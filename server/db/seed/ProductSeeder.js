@@ -1,6 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const Product = require('../../components/product/Product');
+const Wishlist = require('../../components/wishlist/Wishlist');
 const mongodb = require("../mongo.connect");
 mongodb.connect();
 
@@ -19,8 +20,9 @@ const importAll = async () => {
 
 const deleteAll = async () => {
   try {
+    await Wishlist.deleteMany();
     await Product.deleteMany();
-    console.log('All product successfully deleted!');
+    console.log('All product and wishlist successfully deleted!');
   } catch (err) {
     console.log(err);
   }

@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { WishlistRoutingModule } from './wishlist-routing.module';
 import { WishlistComponent } from './wishlist.component';
-
+import { ComponentsModule } from 'src/app/components/components.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,11 @@ import { WishlistComponent } from './wishlist.component';
   ],
   imports: [
     CommonModule,
-    WishlistRoutingModule
+    WishlistRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ComponentsModule,
+    NgbModule
   ]
 })
 export class WishlistModule { }

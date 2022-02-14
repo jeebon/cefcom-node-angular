@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'wishlist',
-    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule),
+    loadChildren: () => import('./pages/wishlist/wishlist.module').then(m => m.WishlistModule),
     //canActivate: [AuthGuard],
   },
   {

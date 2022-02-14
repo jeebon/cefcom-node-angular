@@ -3,6 +3,8 @@
   <div class="down-content">
     <h4>{{item.name}}</h4>
     <p>{{item.description}}</p>
-    <a class="btn btn-block btn-danger" (click)="toggleWishlist(item._id)">Add to wishlist</a>
+    <a *ngIf="!item?.wishlist" class="btn btn-block btn-danger" (click)="addToWishlist(item._id)">Add to wishlist</a>
+    <a *ngIf="item?.wishlist" class="btn btn-block btn-danger" (click)="removeFromWishlist(item._id)">Remove from
+      wishlist</a>
   </div>
 </div>

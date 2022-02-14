@@ -3,7 +3,5 @@ export interface CommonResponse {
   path?: string,
   timestamp?: number,
   error?: boolean,
-  validationErrors?: {
-    email: string
-  }
+  validationErrors?: any
 }

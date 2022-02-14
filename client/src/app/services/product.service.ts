@@ -23,7 +23,18 @@ export class ProductService {
     page = (page ? page : 1) - 1;
     return this.http.get<ProductListResponse>(`${this.api}/products?q=${q}&page=${page}`);
   }
+
   addWishlist(id: string) {
     return this.http.post<CommonResponse>(`${this.api}/wishlists`, { product: id });
+  }
+
+  removeFromWishlist(id: string) {
+    return this.http.delete<CommonResponse>(`${this.api}/wishlists/${id}`);
+  }
+
+  wishlist(q: string, page: number) {
+    q = q ? q : '';
+    page = (page ? page : 1) - 1;
+    return this.http.get<ProductListResponse>(`${this.api}/wishlists?q=${q}&page=${page}`);
   }
 }

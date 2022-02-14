@@ -42,7 +42,7 @@ router.get('/', pagination, async (req, res, next) => {
     return next(new AuthenticationException('Unauthenticated!'));
   }
   const { page, size } = req.pagination;
-  const data = await WishlistService.getItems(page, size, req.authenticatedUser);
+  const data = await WishlistService.getItemsWithProducts(page, size, req.authenticatedUser);
   res.send(data);
 });
 
