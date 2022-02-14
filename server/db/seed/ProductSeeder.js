@@ -1,7 +1,6 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const Product = require('../../components/product/Product');
-const logger = require('../../shared/logger');
 const mongodb = require("../mongo.connect");
 mongodb.connect();
 
