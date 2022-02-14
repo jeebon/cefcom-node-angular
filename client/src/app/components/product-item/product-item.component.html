@@ -1,0 +1,8 @@
+<div *ngIf="item" class="product-item">
+  <img [src]="baseImgUri+'/'+item.imageUrl" alt="Product Img">
+  <div class="down-content">
+    <h4>{{item.name}}</h4>
+    <p>{{item.description}}</p>
+    <a class="btn btn-block btn-danger" (click)="toggleWishlist(item._id)">Add to wishlist</a>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.product-item {
+  border: 1px solid #eee;
+  margin-bottom: 30px;
+
+  .down-content {
+    padding: 10px;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .down-content h4 {
+    font-size: 17px;
+    color: #1a6692;
+    margin-bottom: 10px;
+  }
+
+  .down-content p {
+    margin-bottom: 10px;
+    height: 6em;
+    overflow: hidden;
+  }
+
+  .down-content a {
+    color: #f33f3f;
+    background: #fff;
+  }
+}

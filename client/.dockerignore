@@ -1,0 +1,6 @@
+.git
+.firebase
+/node_modules
+.gitignore
+*.zip
+*.md
