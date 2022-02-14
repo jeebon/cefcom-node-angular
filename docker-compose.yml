@@ -34,6 +34,24 @@ services:
     depends_on:
       - mongo_db
 
+  frontend:
+    container_name: cefcom_frontend
+    build:
+      context: ./client
+    restart: always
+    networks:
+      - main_net
+    environment:
+      BACKEND_SERVER: cefcom_backend
+      BACKEND_PORT: 5000
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./client/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - backend
+
 networks:
   main_net:
     driver: bridge
