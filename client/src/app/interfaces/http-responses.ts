@@ -1,5 +1,9 @@
 export interface CommonResponse {
-  result?: any;
-  status?: any;
-  response?: any;
+  message: string;
+  path?: string,
+  timestamp?: number,
+  error?: boolean,
+  validationErrors?: {
+    email: string
+  }
 }
