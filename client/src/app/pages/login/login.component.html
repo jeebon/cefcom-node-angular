@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="happy-clients">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Login</h2>
+    </div>
+    <div class="signup-form">
+      <div class="alert alert-primary" *ngIf="msg" role="alert">
+        {{msg}}
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="sign-form">
+        <div class="form-group">
+          <div class="form-label">Email</div>
+          <input formControlName="email" placeholder="Enter your email" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <div class="form-label">Password</div>
+          <input formControlName="password" placeholder="Enter your password" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-danger">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

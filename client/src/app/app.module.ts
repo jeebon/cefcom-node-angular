@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
+import { UnAuthorizedInterceptor } from 'src/app/interceptors/unauthorized.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +18,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
