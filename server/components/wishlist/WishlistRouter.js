@@ -62,9 +62,8 @@ router.delete('/:id', async (req, res, next) => {
   if (!req.authenticatedUser) {
     return next(new AuthenticationException('Unauthorized'));
   }
-
   try {
-    await WishlistService.deleteHoax(req.params.hoaxId, req.authenticatedUser.id);
+    await WishlistService.deleteItem(req.params.id, req.authenticatedUser);
     res.send();
   } catch (err) {
     return next(err);

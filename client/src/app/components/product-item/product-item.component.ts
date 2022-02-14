@@ -29,6 +29,7 @@ export class ProductItemComponent implements OnInit {
   addToWishlist(id: string) {
     if (this.currentUser) {
       this.productService.addWishlist(id).subscribe((res) => {
+        this.item.wishlist = true;
         alert(res?.message || 'Added');
       }, (err) => {
         alert(err?.message || 'Unable to process');
@@ -41,6 +42,7 @@ export class ProductItemComponent implements OnInit {
   removeFromWishlist(id: string) {
     if (this.currentUser) {
       this.productService.removeFromWishlist(id).subscribe((res) => {
+        this.item.wishlist = false;
         alert(res?.message || 'Removed');
       }, (err) => {
         alert(err?.message || 'Unable to process');
