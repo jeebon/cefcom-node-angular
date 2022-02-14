@@ -28,7 +28,7 @@ const getItems = async (page, size, filters, authenticatedUser) => {
   if (filters.name !== '') {
     aggregate = aggregate.match({
       "$or": [
-        { title: new RegExp(filters.name.toString().trim(), 'i') }
+        { name: new RegExp(filters.name.toString().trim(), 'i') }
       ]
     });
   }
@@ -39,7 +39,7 @@ const getItems = async (page, size, filters, authenticatedUser) => {
     items: items,
     page,
     size,
-    total: Math.ceil(totalCount / size),
+    total: totalCount,
   };
 };
 

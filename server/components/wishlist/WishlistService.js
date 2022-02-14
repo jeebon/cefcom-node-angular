@@ -39,7 +39,7 @@ const getItems = async (page, size, authenticatedUser) => {
     items: items,
     page,
     size,
-    total: Math.ceil(totalCount / size),
+    total: totalCount,
   };
 };
 
