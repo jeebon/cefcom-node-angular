@@ -19,17 +19,29 @@ export class ProductItemComponent implements OnInit {
     private authService: AuthService,
     private productService: ProductService
   ) {
-    this.authService.currentUser.subscribe(x => { console.log('x', x); this.currentUser = x; });
+    this.authService.currentUser.subscribe(x => { this.currentUser = x; });
   }
 
   ngOnInit(): void {
 
   }
 
-  toggleWishlist(id: string) {
+  addToWishlist(id: string) {
     if (this.currentUser) {
       this.productService.addWishlist(id).subscribe((res) => {
-        alert(res?.message || 'Success');
+        alert(res?.message || 'Added');
+      }, (err) => {
+        alert(err?.message || 'Unable to process');
+      })
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  removeFromWishlist(id: string) {
+    if (this.currentUser) {
+      this.productService.removeFromWishlist(id).subscribe((res) => {
+        alert(res?.message || 'Removed');
       }, (err) => {
         alert(err?.message || 'Unable to process');
       })

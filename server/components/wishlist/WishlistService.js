@@ -43,9 +43,43 @@ const getItems = async (page, size, authenticatedUser) => {
   };
 };
 
+const getItemsWithProducts = async (page, size, authenticatedUser) => {
+  console.log('authenticatedUserId', authenticatedUser._id);
+  let aggregate = Wishlist.aggregate([
+    { $match: { user: ObjectId(authenticatedUser._id) } },
+    { $set: { product: { $toObjectId: "$product" } } },
+    {
+      $lookup: {
+        from: "products",
+        localField: "product",
+        foreignField: "_id",
+        as: "product_details"
+      }
+    },
+    { $unwind: "$product_details" },
+  ]);
+
+  const data = await aggregate.facet(aggregateFacetGenerator((page * size), size)).exec();
+
+  const { items, totalCount } = aggregateResultWithCountParser(data)
+  const output = [];
+  items.map((item) => {
+    output.push({ ...item.product_details, wishlist: true });
+  })
+
+  return {
+    items: output,
+    page,
+    size,
+    total: totalCount,
+  };
+};
+
+
 module.exports = {
   save,
   findByUserIdAndProductId,
   getItem,
-  getItems
+  getItems,
+  getItemsWithProducts
 };

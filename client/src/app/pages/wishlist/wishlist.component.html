@@ -1,1 +1,25 @@
-<p>wishlist works!</p>
+<div class="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="filters">
+          <h3>My Wishlist</h3>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="filters-content">
+          <div class="row grid">
+            <div *ngFor="let item of items" class="col-lg-4 col-md-4 all des">
+              <app-component-product-item [item]="item"></app-component-product-item>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <ngb-pagination class="pagination" [collectionSize]="collectionSize" (pageChange)="onPageChange($event)"
+          [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination">
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>

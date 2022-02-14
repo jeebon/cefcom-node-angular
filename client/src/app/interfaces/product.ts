@@ -3,6 +3,7 @@ export interface ProductResponse {
   name: string,
   description: string,
   imageUrl: string,
+  wishlist?: boolean,
   __v: number
 }
 

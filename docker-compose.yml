@@ -25,7 +25,7 @@ services:
       MONGODB_SERVER_STATIC: localhost
       MONGODB_URI: mongodb//mongo_db:27017,
       JWT_SECRET: skfjslkjksdfjw3434j32l4
-      JWT_EXPIRES_IN: 36000
+      JWT_EXPIRES_IN: 3600000
     ports:
       - "5000:5000"
     volumes:
@@ -42,10 +42,12 @@ services:
     networks:
       - main_net
     environment:
+      NODE_ENV: dev
       BACKEND_SERVER: cefcom_backend
       BACKEND_PORT: 5000
     ports:
       - "4200:4200"
+      - "49153:49153"
     volumes:
       - ./client/:/usr/src/app
       - /usr/src/app/node_modules
