@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       }
     }, (err) => {
       console.log('err', err);
-      this.msg = err.body?.message || 'Unable to process request!';
+      this.msg = err || 'Unable to process request!';
     });
 
   }

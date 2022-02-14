@@ -25,7 +25,7 @@ services:
       MONGODB_SERVER_STATIC: localhost
       MONGODB_URI: mongodb//mongo_db:27017,
       JWT_SECRET: skfjslkjksdfjw3434j32l4
-      JWT_EXPIRES_IN: 3600000
+      JWT_EXPIRES_IN: 365d
     ports:
       - "5000:5000"
     volumes:

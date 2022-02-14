@@ -75,11 +75,15 @@ const getItemsWithProducts = async (page, size, authenticatedUser) => {
   };
 };
 
+const deleteItem = async (productId, authenticatedUser) => {
+  return await Wishlist.findOne({ user: ObjectId(authenticatedUser._id), product: ObjectId(productId) }).remove().exec();
+};
 
 module.exports = {
   save,
   findByUserIdAndProductId,
   getItem,
   getItems,
-  getItemsWithProducts
+  getItemsWithProducts,
+  deleteItem
 };
