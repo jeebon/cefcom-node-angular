@@ -36,9 +36,10 @@ router.post('/',
 
 router.get('/', pagination, async (req, res) => {
   const authenticatedUser = req.authenticatedUser;
-  let { name } = req.params;
+  console.log('req.params', req.query);
+  let { q } = req.query;
   const filters = {
-    name: name || ''
+    name: q || ''
   }
   const { page, size } = req.pagination;
   const data = await ProductService.getItems(page, size, filters, authenticatedUser);

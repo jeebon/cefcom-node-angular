@@ -33,7 +33,7 @@ const getUsers = async (page, size, filters) => {
     items: items,
     page,
     size,
-    total: Math.ceil(totalCount / size),
+    total: totalCount,
   };
 };
 
