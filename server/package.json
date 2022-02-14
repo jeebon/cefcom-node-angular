@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L server.js",
+    "import:products": "node db/seed/ProductSeeder.js --import-all",
+    "delete:products": "node db/seed/ProductSeeder.js --delete-all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
